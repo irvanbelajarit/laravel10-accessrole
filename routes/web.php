@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\RoleController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -28,6 +29,13 @@ Route::get('/home', [HomeController::class, 'index'])->name('home');
 //     return 'dashboard';}
 //     )->name('dashboard');
 
-Route::group(['middleware' => ['role:Admin']], function () {
-        Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
+Route::group(['prefix' => 'dashboard','middleware' => ['auth']], function () {
+        Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
+
+
+});
+
+
+Route::group(['prefix' => 'dashboard/users','middleware' => ['auth']], function () {
+    Route::get('/roles', [RoleController::class, 'index'])->name('roles.index');
 });
