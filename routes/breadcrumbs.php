@@ -13,10 +13,30 @@ Breadcrumbs::for('dashboard', function (BreadcrumbTrail $trail) {
     $trail->push('Dashboard', route('dashboard'));
 });
 
-// Dashboard
+// Roles
 Breadcrumbs::for('roles', function (BreadcrumbTrail $trail) {
-    $trail->parent('dashboard');
+
     $trail->push('roles', route('roles.index'));
+});
+
+//users
+Breadcrumbs::for('users', function (BreadcrumbTrail $trail) {
+
+
+    $trail->push('users', route('users.index'));
+});
+
+//user create
+Breadcrumbs::for('user-create', function (BreadcrumbTrail $trail) {
+
+    $trail->parent('users');
+    $trail->push('create', route('users.create'));
+});
+
+//user edit
+Breadcrumbs::for('user-edit', function (BreadcrumbTrail $trail) {
+    $trail->parent('users');
+    $trail->push('edit');
 });
 
 // // Home > Blog

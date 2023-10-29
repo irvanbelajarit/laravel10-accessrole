@@ -2,12 +2,14 @@
 
 
 @section('title')
-Roles
+Users
 @endsection
 
 @section('breadcrumb')
-{{ Breadcrumbs::render('roles') }}
+{{ Breadcrumbs::render('users') }}
 @endsection
+
+
 
 @push('css')
 
@@ -25,12 +27,12 @@ Roles
 
 <div class="card">
     <div class="card-header">
-      <h3 class="card-title">Daftar Roles</h3>
+      <h3 class="card-title">Daftar Users</h3>
     </div>
     <!-- /.card-header -->
     <div class="card-body">
         @can('create')
-            <button type="button" class="btn btn-primary btn-sm mb-3">Tambah</button>
+            <a href="{{route('users.create')}}" type="button" class="btn btn-primary btn-sm mb-3">Tambah</a>
         @endcan
 
         {{ $dataTable->table() }}

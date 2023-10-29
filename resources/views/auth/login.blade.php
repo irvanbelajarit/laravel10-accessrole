@@ -9,7 +9,7 @@
         <!-- /.login-logo -->
         <div class="card card-outline card-primary">
             <div class="card-header text-center">
-                <a href="{{ route('home') }}" class="h1"><b>Administrator</b></a>
+                <a href="#" class="h1"><b>RMS MT 5</b></a>
             </div>
             <div class="card-body">
                 <p class="login-box-msg">Sign in</p>
